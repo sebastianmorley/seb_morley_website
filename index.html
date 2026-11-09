@@ -27,13 +27,14 @@
   a:focus-visible{outline:2px solid var(--line);outline-offset:3px}
 
   /* the sheet: a grey context wash on the right, like the unbuilt site around a plan */
-  .sheet{position:relative;min-height:100vh}
-  .sheet::before{content:"";position:absolute;inset:0 0 0 62%;background:var(--wash);z-index:0}
-  .contours{position:absolute;top:0;bottom:0;left:62%;width:38%;height:100%;z-index:0;fill:none;stroke:var(--thin);stroke-width:.6;opacity:.4}
-  /* dashed structural grid lines, like the site plan */
-  .gridline{position:absolute;top:0;bottom:0;width:0;border-left:1px dashed var(--thin);opacity:.5;z-index:0}
-  .gridline.a{left:7%}.gridline.b{left:62%}.gridline.c{left:88%}
-  .wrap{position:relative;z-index:1;max-width:1040px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:minmax(0,560px) 1fr;gap:0 64px}
+  .sheet{position:relative;min-height:100vh;overflow:hidden}
+  
+  
+  
+  
+  
+  
+  .wrap{max-width:880px;margin:0 auto;padding:0 32px}
 
   /* ---------- plan: left column ---------- */
   header{padding:14vh 0 8vh;border-top:var(--wall) solid var(--line)}
@@ -54,7 +55,7 @@
   .work .year{color:var(--thin);font-variant-numeric:tabular-nums;padding:1px 22px 0 0;font-size:15px}
   .work a:hover .title{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
 
-  .now p{margin:0 0 10px;max-width:56ch}
+  .now p{margin:0 0 10px}
 
   /* openings: dashed, like doors on the plan */
   .links{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 28px}
@@ -67,17 +68,17 @@
   .project h2{margin-top:28px}
   .project .sub{color:var(--thin);margin:-8px 0 28px;font-size:15px}
   .project h3{font-size:13px;font-weight:600;color:var(--thin);letter-spacing:.02em;margin:26px 0 6px}
-  .project p{margin:0;max-width:60ch}
+  .project p{margin:0}
   .project p+p{margin-top:12px}
   .project figure{margin:40px 0 0;padding:28px 0 0;border-top:var(--hairline) solid var(--hair)}
   .project .fig{width:100%;height:auto;max-height:110vh;display:block;background:#fff;border-radius:4px}
-  @media (min-width:861px){.project figure{margin-right:-400px;background:var(--sheet);padding-right:24px;padding-bottom:16px}}
+  
   .project .steps img{width:100%;height:auto;display:block}
   .project .tall img{width:auto;max-width:100%;max-height:120vh;margin:0 auto}
   .project .pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .project .pair img{width:100%;height:auto;display:block}
   @media (max-width:640px){.project .pair{grid-template-columns:1fr}}
-  .project figcaption{color:var(--thin);font-size:14px;margin-top:14px;max-width:56ch}
+  .project figcaption{color:var(--thin);font-size:14px;margin-top:14px}
 
   footer{padding:3vh 0 12vh;color:var(--thin);font-size:14px;border-top:var(--hairline) solid var(--hair)}
 
@@ -97,7 +98,7 @@
   aside .note{margin:40px 0 0;max-width:30ch;line-height:1.5}
 
   @media (max-width:860px){
-    .sheet::before,.contours,.gridline{display:none}
+    .wash,
     .wrap{grid-template-columns:1fr;gap:0}
     aside{padding:0 0 10vh;border-top:var(--hairline) solid var(--hair)}
     aside .grid{display:none}
@@ -112,18 +113,6 @@
 </head>
 <body>
 <div class="sheet">
-<svg class="contours" viewBox="0 0 600 1600" preserveAspectRatio="xMinYMin slice" aria-hidden="true">
-<path d="M0,80 C25,80 25,120 50,120 C75,120 75,141 100,141 C125,141 125,132 150,132 C175,132 175,103 200,103 C225,103 225,72 250,72 C275,72 275,59 300,59 C325,59 325,69 350,69 C375,69 375,94 400,94 C425,94 425,115 450,115 C475,115 475,114 500,114 C525,114 525,89 550,89 C575,89 575,50 600,50"/>
-<path d="M0,303 C25,303 25,314 50,314 C75,314 75,296 100,296 C125,296 125,257 150,257 C175,257 175,216 200,216 C225,216 225,193 250,193 C275,193 275,199 300,199 C325,199 325,226 350,226 C375,226 375,256 400,256 C425,256 425,269 450,269 C475,269 475,259 500,259 C525,259 525,233 550,233 C575,233 575,211 600,211"/>
-<path d="M0,447 C25,447 25,434 50,434 C75,434 75,401 100,401 C125,401 125,367 150,367 C175,367 175,353 200,353 C225,353 225,369 250,369 C275,369 275,407 300,407 C325,407 325,448 350,448 C375,448 375,472 400,472 C425,472 425,468 450,468 C475,468 475,443 500,443 C525,443 525,415 550,415 C575,415 575,402 600,402"/>
-<path d="M0,614 C25,614 25,595 50,595 C75,595 75,570 100,570 C125,570 125,559 150,559 C175,559 175,572 200,572 C225,572 225,606 250,606 C275,606 275,641 300,641 C325,641 325,658 350,658 C375,658 375,646 400,646 C425,646 425,610 450,610 C475,610 475,568 500,568 C525,568 525,543 550,543 C575,543 575,545 600,545"/>
-<path d="M0,800 C25,800 25,766 50,766 C75,766 75,742 100,742 C125,742 125,739 150,739 C175,739 175,758 200,758 C225,758 225,784 250,784 C275,784 275,796 300,796 C325,796 325,782 350,782 C375,782 375,748 400,748 C425,748 425,711 450,711 C475,711 475,691 500,691 C525,691 525,700 550,700 C575,700 575,735 600,735"/>
-<path d="M0,913 C25,913 25,879 50,879 C75,879 75,871 100,871 C125,871 125,890 150,890 C175,890 175,922 200,922 C225,922 225,946 250,946 C275,946 275,948 300,948 C325,948 325,929 350,929 C375,929 375,903 400,903 C425,903 425,890 450,890 C475,890 475,902 500,902 C525,902 525,937 550,937 C575,937 575,976 600,976"/>
-<path d="M0,1038 C25,1038 25,1039 50,1039 C75,1039 75,1068 100,1068 C125,1068 125,1111 150,1111 C175,1111 175,1146 200,1146 C225,1146 225,1156 250,1156 C275,1156 275,1139 300,1139 C325,1139 325,1109 350,1109 C375,1109 375,1085 400,1085 C425,1085 425,1083 450,1083 C475,1083 475,1103 500,1103 C525,1103 525,1130 550,1130 C575,1130 575,1144 600,1144"/>
-<path d="M0,1244 C25,1244 25,1269 50,1269 C75,1269 75,1305 100,1305 C125,1305 125,1333 150,1333 C175,1333 175,1335 200,1335 C225,1335 225,1308 250,1308 C275,1308 275,1266 300,1266 C325,1266 325,1230 350,1230 C375,1230 375,1218 400,1218 C425,1218 425,1233 450,1233 C475,1233 475,1261 500,1261 C525,1261 525,1284 550,1284 C575,1284 575,1286 600,1286"/>
-<path d="M0,1425 C25,1425 25,1449 50,1449 C75,1449 75,1470 100,1470 C125,1470 125,1470 150,1470 C175,1470 175,1445 200,1445 C225,1445 225,1408 250,1408 C275,1408 275,1378 300,1378 C325,1378 325,1373 350,1373 C375,1373 375,1397 400,1397 C425,1397 425,1438 450,1438 C475,1438 475,1474 500,1474 C525,1474 525,1488 550,1488 C575,1488 575,1475 600,1475"/>
-</svg>
-<i class="gridline a"></i><i class="gridline b"></i><i class="gridline c"></i>
 <div class="wrap">
 
   <main>
@@ -735,13 +724,6 @@
 
     <footer>Oxford, UK</footer>
   </main>
-
-  <aside aria-label="Key">
-    <div class="grid" aria-hidden="true">
-      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-    </div>
-    
-  </aside>
 
 </div>
 </div>
